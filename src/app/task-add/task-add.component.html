@@ -1,0 +1,14 @@
+<form (ngSubmit)="addTask(taskForm)" #taskForm="ngForm">
+
+    <label for="title">Title</label><br>
+    <input type="text" placeholder="Enter Title" name="title" id="title" [ngModel]="data.title" (ngModelChange)="data.title= $event" required /><br><br>
+    
+    <label for="description">Description</label><br>
+    <input type="text" placeholder="Enter Description" name="description" id="description" [ngModel]="data.description" (ngModelChange)="data.description= $event" required /><br><br>
+    
+    <label for="completed">Task completed?</label>
+    <input type="checkbox" name="completed" id="completed" [ngModel]="data.completed" (ngModelChange)="data.completed = $event" /><br><br>
+    
+    <button [disabled]="taskForm.invalid" type="submit">ADD</button>
+
+</form>

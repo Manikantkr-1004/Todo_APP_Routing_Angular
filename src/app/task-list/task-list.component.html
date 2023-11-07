@@ -1,0 +1,15 @@
+<h2 *ngIf="data.length===0">You do not have any Todos.</h2>
+<h2 *ngIf="data.length>0">There are total {{data.length}} Todos.</h2>
+
+<div id="parent">
+    <div class="child" *ngFor="let item of data">
+        <h3>Title:- {{item.title}}</h3>
+        <h3>{{item.description}}</h3>
+        <button class="more" routerLink="details/{{item.id}}" itemid="{item.id}" >More ></button>
+        <button (click)="updateTodo(item.id)" class="update" 
+        [ngStyle]="{'color': item.completed ? 'green': 'red'}" 
+        [ngStyle]="{'background-color': item.completed ? 'rgb(168, 255, 165)' : '#ff9a9a'}"
+        >Update Status</button>
+        <button (click)="deleteTodo(item.id)" class="delete">❌</button>
+    </div>
+</div>
